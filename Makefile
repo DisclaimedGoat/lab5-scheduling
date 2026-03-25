@@ -2,18 +2,22 @@
 CXX = g++
 
 # Source files
-SRCS = src/main.cpp
-TARGET = scheduler.exe
-
-# Default target
-all: $(TARGET)
+SRCS = main.cpp
+TARGET = scheduler
 
 $(TARGET): $(SRCS)
 	$(CXX) -o $(TARGET) $(SRCS)
 
-# Run the program with input and output files
+# Default target
+all: $(TARGET)
+
+# Run the program with default input and output files
 run: $(TARGET)
 	./$(TARGET) input.txt output.txt
+
+# Run the program with bad input and output files. Supposed to be messy deadlines
+bad: $(TARGET)
+	./$(TARGET) input-bad.txt output-bad.txt
 
 # Clean up build files
 clean:
